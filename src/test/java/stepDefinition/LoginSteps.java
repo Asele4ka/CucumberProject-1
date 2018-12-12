@@ -1,10 +1,11 @@
-package com.syntax.cucumberproject.test.stepDefinitions;
+package stepDefinition;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -23,31 +24,40 @@ public class LoginSteps {
 
 	@Given("^I navigate to the FreeCrm$")
 	public void i_navigate_to_the_FreeCrm() throws Throwable {
-		driver.get("");
+		driver.get("https://www.freecrm.com/index.html");
 	}
 
-	@When("^I enter valid username and password$")
-	public void i_enter_valid_username_and_password() throws Throwable {
-		driver.findElement(By.name("username")).sendKeys("");
-		driver.findElement(By.name("password")).sendKeys("");
+	@When("^I enter \"(.*)\" and \"(.*)\"$")
+	public void i_enter_and(String uName, String pwd) throws Throwable {
+		driver.findElement(By.name("username")).sendKeys(uName);
+		driver.findElement(By.name("password")).sendKeys(pwd);
 	}
 
 	@When("^I click login button$")
 	public void i_click_login_button() throws Throwable {
-		System.out.println("clicked on login");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//input[@value='Login']")).click();
 	}
 
 	@Then("^I successfully logged in$")
 	public void i_successfully_logged_in() throws Throwable {
-		System.out.println("Successful login");
+		driver.switchTo().frame(1);
+		Thread.sleep(1000);
+		boolean homeElement = driver
+				.findElement(By.xpath("//a[@href='https://www.freecrm.com/system/index.cfm?action=home']"))
+				.isDisplayed();
+		Assert.assertTrue(homeElement);
+		System.out.println(homeElement + " home is displayed");
 	}
 
-	@When("^I enter invalid username and password$")
-	public void i_enter_invalid_username_and_password() throws Throwable {
-		System.out.println("Entered invalid username and password");
-	}
-
+	@Then("^I still see sign up link$")
 	public void i_still_see_sign_up_link() throws Throwable {
-		System.out.println("Sign up link is displayed");
+		boolean signUp= driver.findElement(By.linkText("Sign Up")).isDisplayed();
+		 Assert.assertTrue(signUp);
+	}
+	
+	@Then("^I close browser$")
+	public void i_close_browser() throws Throwable {
+		driver.quit();
 	}
 }
