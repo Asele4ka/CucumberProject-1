@@ -10,9 +10,9 @@ import org.testng.Assert;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import testUtils.BaseClass;
 
-public class LoginSteps {
-	WebDriver driver;
+public class LoginSteps extends BaseClass{
 
 	@Given("^I open browser$")
 	public void i_open_browser() throws Throwable {
@@ -47,7 +47,6 @@ public class LoginSteps {
 				.findElement(By.xpath("//a[@href='https://www.freecrm.com/system/index.cfm?action=home']"))
 				.isDisplayed();
 		Assert.assertTrue(homeElement);
-		System.out.println(homeElement + " home is displayed");
 	}
 
 	@Then("^I still see sign up link$")
