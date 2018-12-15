@@ -1,5 +1,6 @@
 Feature: SignUp
 
+
   Scenario Outline: SignUp without keyword example
     Given I open browser
     And I navigate to the FreeCrm
@@ -17,3 +18,11 @@ Feature: SignUp
       | John     | Doe      | jdoe@gmail.com | jdoe1    | jdoe123  | Syntax  | 1234567890 |
       | Jammes   | Doe      | jdoe@gmail.com | jdoe2    | jdoe123  | Syntax  | 1234567890 |
       | Johnny   | Doe      | jdoe@gmail.com | jdoe3    | jdoe123  | Syntax  | 1234567890 |
+
+#@Regression
+  Scenario: SignUp dammy test
+    Given I open browser
+    And I navigate to the FreeCrm
+    When I click on SignUp
+    Then I am "happy"
+    And I close browser

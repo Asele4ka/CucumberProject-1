@@ -12,7 +12,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import testUtils.BaseClass;
 
-public class LoginSteps extends BaseClass{
+public class LoginSteps extends BaseClass {
 
 	@Given("^I open browser$")
 	public void i_open_browser() throws Throwable {
@@ -27,11 +27,11 @@ public class LoginSteps extends BaseClass{
 		driver.get("https://www.freecrm.com/index.html");
 	}
 
-//	@When("^I enter \"(.*)\" and \"(.*)\"$")
-//	public void i_enter_and(String uName, String pwd) throws Throwable {
-//		driver.findElement(By.name("username")).sendKeys(uName);
-//		driver.findElement(By.name("password")).sendKeys(pwd);
-//	}
+	@When("^I enter username \"(.*)\" and password \"(.*)\"$")
+	public void i_enter_and(String uName, String pwd) throws Throwable {
+		driver.findElement(By.name("username")).sendKeys(uName);
+		driver.findElement(By.name("password")).sendKeys(pwd);
+	}
 
 	@When("^I click login button$")
 	public void i_click_login_button() throws Throwable {
@@ -51,12 +51,23 @@ public class LoginSteps extends BaseClass{
 
 	@Then("^I still see sign up link$")
 	public void i_still_see_sign_up_link() throws Throwable {
-		boolean signUp= driver.findElement(By.linkText("Sign Up")).isDisplayed();
-		 Assert.assertTrue(signUp);
+		boolean signUp = driver.findElement(By.linkText("Sign Up")).isDisplayed();
+		Assert.assertTrue(signUp);
 	}
-	
+
 	@Then("^I close browser$")
 	public void i_close_browser() throws Throwable {
 		driver.quit();
 	}
+
+	@Then("^I am \"(.*)\"$")
+	public void i_am_happy(String state) throws Throwable {
+		System.out.println("I am " +state);
+	}
+
+	@Then("^I am sad$")
+	public void i_am_sad() throws Throwable {
+		System.out.println("I am sad");
+	}
+
 }
