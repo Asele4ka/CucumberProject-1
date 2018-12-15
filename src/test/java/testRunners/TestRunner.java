@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 // features,glue, dryRun, plugin, strict, monochrome, tags
-@CucumberOptions(features = { "src/test/resources/features/SignUp.feature"}
+@CucumberOptions(features = { "src/test/resources/features/SighUpWithDT.feature"}
 	, glue = { "stepDefinition" }
 	, plugin = {"pretty","html:test-output" }
 	, dryRun = false

@@ -27,11 +27,11 @@ public class LoginSteps extends BaseClass{
 		driver.get("https://www.freecrm.com/index.html");
 	}
 
-	@When("^I enter \"(.*)\" and \"(.*)\"$")
-	public void i_enter_and(String uName, String pwd) throws Throwable {
-		driver.findElement(By.name("username")).sendKeys(uName);
-		driver.findElement(By.name("password")).sendKeys(pwd);
-	}
+//	@When("^I enter \"(.*)\" and \"(.*)\"$")
+//	public void i_enter_and(String uName, String pwd) throws Throwable {
+//		driver.findElement(By.name("username")).sendKeys(uName);
+//		driver.findElement(By.name("password")).sendKeys(pwd);
+//	}
 
 	@When("^I click login button$")
 	public void i_click_login_button() throws Throwable {
