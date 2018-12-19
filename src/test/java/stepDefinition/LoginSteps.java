@@ -68,6 +68,8 @@ public class LoginSteps extends BaseClass {
 	@Then("^I am sad$")
 	public void i_am_sad() throws Throwable {
 		System.out.println("I am sad");
+		
+		System.out.println("Fork test added by Waqas");
 	}
-
+	
 }
