@@ -70,6 +70,7 @@ public class LoginSteps extends BaseClass {
 		System.out.println("I am sad");
 		
 		System.out.println("Fork test added by Waqas");
+		System.out.println("Fork test added by Waqas");
 	}
 	
 }
