@@ -69,8 +69,7 @@ public class LoginSteps extends BaseClass {
 	public void i_am_sad() throws Throwable {
 		System.out.println("I am sad");
 		
-		System.out.println("Fork test added by Waqas");
-		System.out.println("Fork test added by Waqas");
+		System.out.println("Changes made by developer 1");
 	}
 	
 }
